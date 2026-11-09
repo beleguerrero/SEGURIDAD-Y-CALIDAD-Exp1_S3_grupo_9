@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: layout(~{login :: contenido})}">
+
+<body>
+    
+    <main th:fragment="contenido" class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
+        <div class="w-full max-w-[1440px] mx-auto px-margin-mobile md:px-margin py-space-xl">
+            <section class="w-full max-w-xl mx-auto flex flex-col justify-center">
+                <div
+                    class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg sm:p-space-xl flex flex-col">
+                    <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Iniciar Sesión
+                    </h1>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs mb-space-lg">
+                        Ingresa a tu cuenta para gestionar tus torneos, scrims y estadísticas competitivas.
+                    </p>
+                    <!-- Formulario de Login Compatible con Spring Security / Thymeleaf -->
+                    <form th:action="@{/login}" method="post" class="flex flex-col gap-space-md">
+                        <!-- Campo 1: Identificador -->
+                        <div class="flex flex-col gap-1.5">
+                            <label
+                                class="font-label-md text-label-md text-on-surface flex items-center justify-between"
+                                for="usernameInput">
+                                <span>Gamertag</span>
+                                <span
+                                    class="font-label-sm text-label-sm text-on-surface-variant/70">Requerido</span>
+                            </label>
+                            <div class="relative flex items-center">
+                                <div
+                                    class="absolute left-3.5 flex items-center pointer-events-none text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-[20px]">badge</span>
+                                </div>
+                                <input autocomplete="usuario"
+                                    class="w-full pl-11 pr-space-md py-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all"
+                                    id="usuarioInput" name="usuario"
+                                    placeholder="@Gamertag" required="" type="text" />
+                            </div>
+                        </div>
+                        <!-- Campo 2: Contraseña con Toggle Mostrar/Ocultar -->
+                        <div class="flex flex-col gap-1.5">
+                            <div class="flex items-center justify-between">
+                                <label class="font-label-md text-label-md text-on-surface" for="passwordInput">
+                                    Contraseña
+                                </label>
+                                <a class="font-label-sm text-label-sm text-primary hover:text-primary-container hover:underline transition-colors"
+                                    data-path="recuperar-credenciales" href="#">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+                            </div>
+                            <div class="relative flex items-center">
+                                <div
+                                    class="absolute left-3.5 flex items-center pointer-events-none text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-[20px]">lock</span>
+                                </div>
+                                <input autocomplete="current-password"
+                                    class="w-full pl-11 pr-12 py-3 bg-surface-container-low rounded-lg font-body-md text-body-md text-on-surface placeholder:text-outline focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all"
+                                    id="passwordInput" name="password" placeholder="••••••••••••" required=""
+                                    type="password" />
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    
+                        <!-- Botón de Envío Principal CTA -->
+                        <button
+                            class="w-full mt-space-sm py-3.5 px-space-lg rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-sm shadow-md hover:shadow-xl hover:opacity-95 active:scale-[0.99] transition-all group"
+                            id="loginSubmitBtn" type="submit">
+                            <span>Entrar a la Arena</span>
+                            <span
+                                class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                        </button>
+                    </form>
+                    <!-- Pie del Formulario: Enlace a Registro -->
+                    <div
+                        class="mt-space-lg pt-space-md bg-surface-container-low/50 rounded-lg p-space-md text-center flex flex-col sm:flex-row items-center justify-center gap-1.5">
+                        <span class="font-body-md text-body-md text-on-surface-variant">¿No tienes cuenta
+                            aún?</span>
+                        <a class="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-0.5"
+                            data-path="iniciar-sesion-registro" href="/registro">
+                            <span>Regístrate aquí</span>
+                            <span class="material-symbols-outlined text-[16px]">north_east</span>
+                        </a>
+                    </div>
+    
+                    
+                    
+                    <div class="mt-6 rounded-xl border border-nexus-border bg-nexus-card p-4 shadow-nexus-card">
+                        <div class="mb-3 flex items-center gap-2">
+                            <h3 class="font-semibold text-nexus-text-main">
+                                Usuario de prueba
+                            </h3>
+                        </div>
+    
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-sm text-nexus-text-muted">@Gamertag</span>
+                                <code class="font-medium text-nexus-text-main">belen_g</code>
+                            </div>
+    
+                            <div class="flex items-center justify-between gap-3">
+                                <span class="text-sm text-nexus-text-muted">Contraseña</span>
+                                <code class="font-medium text-nexus-text-main">pass1</code>
+                            </div>
+                        </div>
+                    </div>
+    
+    
+                </div>
+            </section>
+    
+        </div>
+    </main>
+
+</body>
+</html>
+
+

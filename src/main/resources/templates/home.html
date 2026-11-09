@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base :: layout(~{home :: contenido})}">
+
+<body>
+
+    <main th:fragment="contenido" class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <div class="card shadow">
+                    <div class="card-body p-4 p-md-5 text-center">
+
+                        <h1 class="text-primary mb-4" th:text="|Bienvenido a ${name}|"></h1>
+
+                        <span class="material-symbols-outlined text-[20px]">sports_esports</span>
+                        
+                        <div sec:authorize="!isAuthenticated()">
+                            <p><a href="/login" class="theme-primary underline-offset-2 underline-20 hover:underline-100">Iniciar sesión</a></p>
+                        </div>
+
+                        <div sec:authorize="isAuthenticated()">
+
+                            <h2 class="h4 mb-3">
+                                ¡Hola, <span sec:authentication="name"></span>!
+                            </h2>
+
+                            <p class="text-secondary mb-4">
+                                La seguridad se ha implementado correctamente con Spring Security.
+                            </p>
+
+                            <div class="alert alert-success mb-0">
+                                Has iniciado sesión correctamente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

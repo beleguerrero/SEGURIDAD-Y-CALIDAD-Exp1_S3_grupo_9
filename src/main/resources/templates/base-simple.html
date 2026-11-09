@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(contenido)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelStart</title>
+    <link rel="stylesheet" href="/fonts.css">
+    <link rel="stylesheet" href="/css/tailwind.css">
+
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
+  
+    <th:block th:replace="${contenido}"></th:block>
+
+</body>
+</html>

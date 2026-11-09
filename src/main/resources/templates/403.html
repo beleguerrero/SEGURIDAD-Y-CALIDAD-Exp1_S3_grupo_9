@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base-simple :: layout(~{403 :: contenido})}">
+
+<body>
+
+    <main th:fragment="contenido" class="w-full pt-16 bg-surface min-h-[calc(100vh-16rem)]">
+        <div class="flex flex-col w-full">
+            <div class="relative w-full overflow-hidden py-space-xl px-margin">
+                <div class="max-w-[1200px] mx-auto flex flex-col items-center">
+                    <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center mb-space-xl">
+                        <!-- Left: Futuristic Hologram Lock Graphic & Telemetry HUD -->
+                        <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+                        <div
+                            class="relative w-full max-w-[380px] aspect-square rounded-full bg-surface-container-lowest shadow-xl flex items-center justify-center p-space-lg group">
+                            <!-- Outer HUD Rings (SVG) -->
+                            <svg class="absolute inset-0 w-full h-full text-outline-variant/40" fill="none" viewbox="0 0 400 400">
+                            <circle cx="200" cy="200" r="186" stroke="currentColor" stroke-dasharray="6 8" stroke-width="2">
+                            </circle>
+                            <circle class="text-primary/30" cx="200" cy="200" r="160" stroke="currentColor"
+                                stroke-dasharray="40 20 10 15" stroke-width="1.5"></circle>
+                            <circle cx="200" cy="200" r="130" stroke="currentColor" stroke-opacity="0.2" stroke-width="1">
+                            </circle>
+                            <!-- Angular Reticle Crosshairs -->
+                            <path class="text-primary" d="M200 12 L200 36 M200 364 L200 388 M12 200 L36 200 M364 200 L388 200"
+                                stroke="currentColor" stroke-width="2.5"></path>
+                            </svg>
+                            <!-- Inner Floating Holographic Shield & Lock -->
+                            <div
+                            class="relative z-10 w-44 h-44 rounded-full bg-surface-container-low shadow-md flex flex-col items-center justify-center transform transition-transform duration-500 group-hover:scale-105">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="font-stat-numeric text-stat-numeric text-primary font-bold tracking-tight">403</span>
+                                <span
+                                class="font-label-sm text-label-sm px-space-xs py-0.5 rounded bg-error-container text-on-error-container font-bold">LOCKED</span>
+                            </div>
+                            </div>
+                            <!-- Orbiting Telemetry Badges -->
+                            <div
+                            class="absolute -top-3 right-6 bg-surface-container-lowest px-space-md py-space-xs rounded-lg shadow-md flex items-center gap-space-xs">
+                            <span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+                            <span class="font-label-sm text-label-sm text-on-surface uppercase tracking-wider font-bold">Nivel 00
+                                Requerido</span>
+                            </div>
+                            <div
+                            class="absolute -bottom-2 left-4 bg-surface-container-lowest px-space-md py-space-xs rounded-lg shadow-md flex items-center gap-space-xs">
+                            <span class="material-symbols-outlined text-error text-[18px]">lock_reset</span>
+                            <span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">Handshake ID:
+                                #NX-8820</span>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- Right: Crisp Typographic Copy & Recovery Actions -->
+                        <div class="lg:col-span-7 flex flex-col text-left">
+                        <div class="inline-flex items-center gap-space-xs text-primary mb-space-xs">
+                            <span class="material-symbols-outlined text-[20px]">sports_esports</span>
+                            <span class="font-label-md text-label-md uppercase tracking-wider font-bold">LevelStart Security
+                            Protocol</span>
+                        </div>
+                        <h1 class="font-headline-lg text-headline-lg text-on-surface mb-space-md">
+                            ¡Alto ahí, jugador! No tienes permiso para acceder a este sector.
+                        </h1>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mb-space-lg leading-relaxed">
+                            Esta sección corresponde a torneos privados, gestión administrativa o salas competitivas reservadas.
+                            Para ingresar, necesitas una invitación especial, membresía de escuadra activa o iniciar sesión con una
+                            cuenta verificada.
+                        </p>
+                        <!-- Action Buttons Bar -->
+                        <div class="flex flex-wrap items-center gap-space-md mb-space-lg">
+                            <a class="inline-flex items-center gap-space-xs px-space-lg py-space-sm bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary-container shadow-md transition-all"
+                            data-path="iniciar-sesion-registro" href="/login">
+                            <span class="material-symbols-outlined text-[18px]">login</span>
+                            <span>Iniciar Sesión / Identificarse</span>
+                            </a>
+                            <a class="inline-flex items-center gap-space-xs px-space-lg py-space-sm bg-surface-container-lowest text-on-surface rounded font-label-md text-label-md hover:bg-surface-container shadow-sm transition-all"
+                            data-path="inicio-explorar" href="/">
+                            <span class="material-symbols-outlined text-[18px]">explore</span>
+                            <span>Volver al Inicio / Explorar Eventos</span>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
